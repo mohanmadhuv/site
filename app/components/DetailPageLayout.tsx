@@ -14,7 +14,7 @@ export default function DetailPageLayout({
         <span className="type-title">Mohan Madhuv</span>
         <span className="type-subtitle">Designer + Engineer</span>
       </Link>
-      <div className="flex flex-col gap-[32px] mt-[120px]">
+      <div className="flex flex-col gap-[16px] mt-[120px]">
         <p className="type-heading leading-[1.618]">{metadata.title}</p>
         {metadata.link && (
           <a
