@@ -5,11 +5,13 @@ import About from "./components/About";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white pt-[120px] pb-[120px] flex flex-col gap-[120px]">
+    <main className="min-h-screen bg-white pt-[120px] pb-[120px] flex flex-col">
       <Hero />
-      <Projects />
-      <Work />
-      <About />
+      <div className="flex flex-col gap-[80px] mt-[120px]">
+        <Projects />
+        <Work />
+        <About />
+      </div>
     </main>
   );
 }

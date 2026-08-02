@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <section className="flex flex-col gap-8">
+    <section className="flex flex-col gap-4">
       <span className="type-heading">About</span>
       <div className="flex flex-col gap-[26px] type-caption">
         <p>

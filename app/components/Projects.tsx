@@ -15,7 +15,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section className="flex flex-col gap-8">
+    <section className="flex flex-col gap-3">
       <span className="type-heading">Projects</span>
       {projects.map((project) => (
         <div
