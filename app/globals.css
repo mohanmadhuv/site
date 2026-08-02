@@ -24,7 +24,7 @@ body {
 }
 
 @utility hover-transition {
-  transition-property: background-color, color, opacity;
+  transition-property: background-color, color, opacity, text-decoration-color;
   transition-duration: 100ms;
   transition-timing-function: ease-out;
 }
@@ -57,4 +57,12 @@ body {
   font-weight: 400;
   color: #808080;
   letter-spacing: -0.02em;
+}
+
+@utility type-link {
+  font-weight: 400;
+  color: #808080;
+  letter-spacing: -0.02em;
+  text-decoration-line: underline;
+  text-underline-offset: 2px;
 }

@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
-type Entry = { role: string; company: string | null };
+type Entry = { role: string; company: string | null; slug: string };
 type YearGroup = { year: string; entries: Entry[] };
 type HoverState =
   | { kind: "year"; year: string }
@@ -10,26 +11,44 @@ type HoverState =
   | null;
 
 const work: YearGroup[] = [
-  { year: "2026", entries: [{ role: "Frontier LLMs", company: "Mercor" }] },
-  { year: "2025", entries: [{ role: "Freelance", company: null }] },
+  {
+    year: "2026",
+    entries: [{ role: "Frontier LLMs", company: "Mercor", slug: "mercor-frontier-llms" }],
+  },
+  {
+    year: "2025",
+    entries: [{ role: "Freelance", company: null, slug: "freelance-2025" }],
+  },
   {
     year: "2024",
     entries: [
-      { role: "Gold", company: "Moneyview" },
-      { role: "Intranet", company: "Moneyview" },
+      { role: "Gold", company: "Moneyview", slug: "moneyview-gold" },
+      { role: "Intranet", company: "Moneyview", slug: "moneyview-intranet" },
     ],
   },
-  { year: "2023", entries: [{ role: "Lending", company: "Moneyview" }] },
+  {
+    year: "2023",
+    entries: [{ role: "Lending", company: "Moneyview", slug: "moneyview-lending" }],
+  },
   {
     year: "2022",
     entries: [
-      { role: "Design Systems", company: "Moneyview" },
-      { role: "Evaluations", company: "Scaler" },
+      { role: "Design Systems", company: "Moneyview", slug: "moneyview-design-systems" },
+      { role: "Evaluations", company: "Scaler", slug: "scaler-evaluations" },
     ],
   },
-  { year: "2021", entries: [{ role: "Web", company: "Purplemango" }] },
-  { year: "2020", entries: [{ role: "Web", company: "ThinkRobotics" }] },
-  { year: "2019", entries: [{ role: "Freelance", company: null }] },
+  {
+    year: "2021",
+    entries: [{ role: "Web", company: "Purplemango", slug: "purplemango-web" }],
+  },
+  {
+    year: "2020",
+    entries: [{ role: "Web", company: "ThinkRobotics", slug: "thinkrobotics-web" }],
+  },
+  {
+    year: "2019",
+    entries: [{ role: "Freelance", company: null, slug: "freelance-2019" }],
+  },
 ];
 
 export default function Work() {
@@ -70,7 +89,8 @@ export default function Work() {
               >
                 {entryIndex === 0 ? year : ""}
               </span>
-              <span
+              <Link
+                href={`/work/${entry.slug}`}
                 className={`type-body hover-transition ${entryActive ? "opacity-100" : "opacity-30"}`}
                 onMouseEnter={() => setHover({ kind: "entry", key })}
                 onMouseLeave={() => setHover(null)}
@@ -79,7 +99,7 @@ export default function Work() {
                 {entry.company && (
                   <span className="type-caption"> @ {entry.company}</span>
                 )}
-              </span>
+              </Link>
             </div>
           );
         })

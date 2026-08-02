@@ -14,15 +14,15 @@ export default function About() {
         </p>
         <p>
           Find me on{" "}
-          <a href="#" className="underline">
+          <a href="#" className="type-link hover-transition hover:text-black">
             X
           </a>{" "}
           or reach me via{" "}
-          <a href="#" className="underline">
+          <a href="#" className="type-link hover-transition hover:text-black">
             email
           </a>
           . My code is on{" "}
-          <a href="#" className="underline">
+          <a href="#" className="type-link hover-transition hover:text-black">
             GitHub
           </a>
           .
