@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
 type Entry = { role: string; company: string | null; slug: string };
@@ -53,6 +53,29 @@ const work: YearGroup[] = [
 
 export default function Work() {
   const [hover, setHover] = useState<HoverState>(null);
+  const listRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    let scrollTimeout: number;
+    const disableHoverDuringScroll = () => {
+      const list = listRef.current;
+      if (!list) return;
+      list.style.pointerEvents = "none";
+      window.clearTimeout(scrollTimeout);
+      scrollTimeout = window.setTimeout(() => {
+        list.style.pointerEvents = "";
+      }, 150);
+    };
+    window.addEventListener("scroll", disableHoverDuringScroll, { passive: true });
+    window.addEventListener("wheel", disableHoverDuringScroll, { passive: true });
+    window.addEventListener("touchmove", disableHoverDuringScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", disableHoverDuringScroll);
+      window.removeEventListener("wheel", disableHoverDuringScroll);
+      window.removeEventListener("touchmove", disableHoverDuringScroll);
+      window.clearTimeout(scrollTimeout);
+    };
+  }, []);
 
   const activeYear =
     hover?.kind === "year"
@@ -64,46 +87,48 @@ export default function Work() {
   return (
     <section className="flex flex-col gap-4">
       <span className="type-heading">Work</span>
-      {work.flatMap(({ year, entries }) =>
-        entries.map((entry, entryIndex) => {
-          const key = `${year}-${entry.role}`;
-          const isHovering = hover !== null;
-          const yearLabelActive = !isHovering || activeYear === year;
-          const entryActive =
-            !isHovering ||
-            (hover?.kind === "entry" && hover.key === key) ||
-            (hover?.kind === "year" && hover.year === year);
+      <div
+        ref={listRef}
+        className="grid grid-cols-[4rem_auto] gap-x-8 -my-2"
+        onMouseLeave={() => setHover(null)}
+      >
+        {work.flatMap(({ year, entries }) =>
+          entries.map((entry, entryIndex) => {
+            const key = `${year}-${entry.role}`;
+            const isHovering = hover !== null;
+            const yearLabelActive = !isHovering || activeYear === year;
+            const entryActive =
+              !isHovering ||
+              (hover?.kind === "entry" && hover.key === key) ||
+              (hover?.kind === "year" && hover.year === year);
 
-          return (
-            <div key={key} className="flex gap-8">
-              <span
-                className={`type-caption w-16 shrink-0 hover-transition ${yearLabelActive ? "opacity-100" : "opacity-30"}`}
-                onMouseEnter={
-                  entryIndex === 0
-                    ? () => setHover({ kind: "year", year })
-                    : undefined
-                }
-                onMouseLeave={
-                  entryIndex === 0 ? () => setHover(null) : undefined
-                }
-              >
-                {entryIndex === 0 ? year : ""}
-              </span>
-              <Link
-                href={`/work/${entry.slug}`}
-                className={`type-body hover-transition ${entryActive ? "opacity-100" : "opacity-30"}`}
-                onMouseEnter={() => setHover({ kind: "entry", key })}
-                onMouseLeave={() => setHover(null)}
-              >
-                {entry.role}
-                {entry.company && (
-                  <span className="type-caption"> @ {entry.company}</span>
-                )}
-              </Link>
-            </div>
-          );
-        })
-      )}
+            return (
+              <Fragment key={key}>
+                <span
+                  className={`type-caption hover-transition py-2 ${yearLabelActive ? "opacity-100" : "opacity-30"}`}
+                  onMouseEnter={
+                    entryIndex === 0
+                      ? () => setHover({ kind: "year", year })
+                      : undefined
+                  }
+                >
+                  {entryIndex === 0 ? year : ""}
+                </span>
+                <Link
+                  href={`/work/${entry.slug}`}
+                  className={`type-body hover-transition block w-full py-2 ${entryActive ? "opacity-100" : "opacity-30"}`}
+                  onMouseEnter={() => setHover({ kind: "entry", key })}
+                >
+                  {entry.role}
+                  {entry.company && (
+                    <span className="type-caption"> @ {entry.company}</span>
+                  )}
+                </Link>
+              </Fragment>
+            );
+          })
+        )}
+      </div>
     </section>
   );
 }
