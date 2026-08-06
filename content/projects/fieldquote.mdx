@@ -1,7 +1,9 @@
+import { FootnoteRef } from "@/app/components/Footnotes";
+
 export const metadata = {
   name: "FieldQuote",
   description: "Optimized feedback capture and relay for medical residents",
-  title: "Optimizing feedback relay for medical residents",
+  title: <>Making clinical supervision easy for preceptors<FootnoteRef n={1} /></>,
   link: "fieldquotes.lovable.app",
   stack: [
     { icon: "/icons/stack/claude.webp", name: "Claude", usage: "Orchestration" },
@@ -19,13 +21,15 @@ export const footnotes = [
   { n: 2, text: <>There are other tools pointing in this direction. What I wanted was something focused purely on feedback.</> },
 ];
 
-For AGIV's Hackers & Healers Hackathon, my team built FieldQuote, a dictation tool for family medicine preceptors<FootnoteRef n={1} />. My part was the piece that turns a spoken debrief into feedback and learning materials (Flashcards, quizzes, and more) the resident can actually use.
+For AGIV's Hackers & Healers Hackathon, my team built FieldQuote, a dictation tool for family medicine preceptors.
 
 <Media caption="A preceptor debrief after a clinic session" />
 
-## Why it's different
+## Learning from Preceptors
 
 A preceptor supervising a half-day clinic gives residents verbal feedback after nearly every patient. It's quick and specific, delivered in the moment. They don't write it down anywhere the resident can keep and return to. Under time pressure, that step gets skipped, and the resident loses the feedback.
+
+<blockquote className="type-caption leading-[1.618] mx-0 my-[16px]"><span>“It’s not so much that resembling nature is intrinsically good as that nature has had a long time to work on the problem.”</span><span className="block text-right">— Paul Graham, Taste for Makers</span></blockquote>
 
 FieldQuote doesn't ask preceptors to do that second step differently. It removes it. They pick the resident, speak the debrief the way they'd already say it out loud, and the dictation comes out as structured feedback the resident receives right away.
 

@@ -9,7 +9,7 @@ const projects = [
   {
     slug: "fieldquote",
     name: "FieldQuote",
-    description: "Optimized feedback capture and relay for medical residents",
+    description: "Making clinical supervision easy for preceptors",
   },
   {
     slug: "gc-contract-intelligence",

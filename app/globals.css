@@ -71,6 +71,7 @@ sup {
 }
 
 @utility type-caption {
+  font-family: var(--font-sans), sans-serif;
   font-weight: 400;
   color: #808080;
   letter-spacing: -0.02em;

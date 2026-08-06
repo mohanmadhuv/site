@@ -14,7 +14,7 @@ export type FootnoteItem = {
 export type ContentMetadata = {
   name: string;
   description: string;
-  title: string;
+  title: ReactNode;
   link?: string;
   stack?: StackItem[];
 };
