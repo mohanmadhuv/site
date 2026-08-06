@@ -7,7 +7,7 @@ export function Footnotes({ children }: { children: React.ReactNode }) {
   );
 }
 
-export function Footnote({ n, text }: { n: number; text: string }) {
+export function Footnote({ n, text }: { n: number; text: React.ReactNode }) {
   return (
     <li
       id={`footnote-${n}`}

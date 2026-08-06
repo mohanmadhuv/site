@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 export type StackItem = {
   icon: string;
   name: string;
@@ -6,7 +8,7 @@ export type StackItem = {
 
 export type FootnoteItem = {
   n: number;
-  text: string;
+  text: ReactNode;
 };
 
 export type ContentMetadata = {

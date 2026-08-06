@@ -11,6 +11,7 @@
   --color-foreground: var(--foreground);
   --color-stroke: var(--stroke);
   --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
 }
 
 body {
@@ -73,6 +74,16 @@ sup {
   font-weight: 400;
   color: #808080;
   letter-spacing: -0.02em;
+}
+
+@utility type-code {
+  font-family: var(--font-mono), monospace;
+  font-weight: 400;
+  color: #808080;
+  letter-spacing: -0.02em;
+  background-color: #F2F2F2;
+  padding: 2px 8px;
+  border-radius: 4px;
 }
 
 @utility type-link {
