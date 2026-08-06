@@ -9,20 +9,35 @@ export default function About() {
         </p>
         <p>
           Aside from work, I tinker through life with my swe wife. I read
-          philosophy, sketch, hike and can also solve a Rubik&apos;s Cube in
-          about 15 seconds.
+          philosophy, sketch, hike and can solve a Rubik&apos;s Cube in
+          ~15s.
         </p>
         <p>
           Find me on{" "}
-          <a href="#" className="type-link hover-transition hover:text-black">
+          <a
+            href="https://x.com/mohanmadhuv"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="type-link hover-transition hover:text-black"
+          >
             X
           </a>{" "}
           or reach me via{" "}
-          <a href="#" className="type-link hover-transition hover:text-black">
+          <a
+            href="mailto:mohandesignsproduct@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="type-link hover-transition hover:text-black"
+          >
             email
           </a>
           . My code is on{" "}
-          <a href="#" className="type-link hover-transition hover:text-black">
+          <a
+            href="https://github.com/mohanmadhuv"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="type-link hover-transition hover:text-black"
+          >
             GitHub
           </a>
           .

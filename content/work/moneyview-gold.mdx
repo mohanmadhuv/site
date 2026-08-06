@@ -10,9 +10,14 @@ export const metadata = {
   ],
 };
 
+export const footnotes = [
+  { n: 1, text: "This is footnote 1" },
+  { n: 2, text: "Here goes footnote 2" },
+];
+
 <Media />
 
-When Moneyview users open the app to take a loan, and a banner says start an investment, they close it. Not because they don't want to invest, but because nothing in that moment explained why is coming from an app they came to for borrowing money.
+When Moneyview users open the app to take a loan, and a banner says start an investment, they close it. Not because they don't want to invest, but because nothing in that moment explained why is coming from an app they came to for borrowing money.<FootnoteRef n={1} />
 
 <Media />
 
@@ -26,4 +31,4 @@ Most digital gold apps compete on rates and sales. Moneyview's users weren't eve
 
 Designing for a first investment, and not a product, changed the framing entirely. Amounts started small, but they started snowballing.
 
-50,000+ transactions in three months. Repeat purchases up 36%. One of Moneyview's best-performing verticals after lending.
+50,000+ transactions in three months. Repeat purchases up 36%. One of Moneyview's best-performing verticals after lending.<FootnoteRef n={2} />
