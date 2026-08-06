@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Media({ src, caption }: { src?: string; caption?: string }) {
   return (
     <div className="flex flex-col mb-[16px]">
-      <div className="w-full h-[280px] bg-[#f5f4f4] border border-[#e3e3e2] rounded-[8px] overflow-clip relative shrink-0">
+      <div className="w-full h-[280px] bg-[#f5f4f4] border border-stroke rounded-[8px] overflow-clip relative shrink-0">
         {src && (
           <Image
             alt=""
