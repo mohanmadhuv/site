@@ -1,4 +1,4 @@
-import type { ContentMetadata } from "@/app/types/content";
+import type { ContentMetadata, FootnoteItem } from "@/app/types/content";
 import DetailPageLayout from "@/app/components/DetailPageLayout";
 
 const slugs = [
@@ -22,9 +22,10 @@ export default async function ProjectPage({
   const mod = await import(`@/content/projects/${slug}.mdx`);
   const Post = mod.default as React.ComponentType;
   const metadata = mod.metadata as ContentMetadata;
+  const footnotes = mod.footnotes as FootnoteItem[] | undefined;
 
   return (
-    <DetailPageLayout metadata={metadata}>
+    <DetailPageLayout metadata={metadata} footnotes={footnotes}>
       <Post />
     </DetailPageLayout>
   );

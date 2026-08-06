@@ -1,12 +1,16 @@
 import Link from "next/link";
-import type { ContentMetadata } from "@/app/types/content";
+import type { ContentMetadata, FootnoteItem } from "@/app/types/content";
+import Stack from "@/app/components/Stack";
+import { Footnotes, Footnote } from "@/app/components/Footnotes";
 // import TableOfContents from "@/app/components/TableOfContents";
 
 export default function DetailPageLayout({
   metadata,
+  footnotes,
   children,
 }: {
   metadata: ContentMetadata;
+  footnotes?: FootnoteItem[];
   children: React.ReactNode;
 }) {
   return (
@@ -33,6 +37,19 @@ export default function DetailPageLayout({
         <div id="article-content" className="flex flex-col gap-[16px]">
           {children}
         </div>
+        {metadata.stack && metadata.stack.length > 0 && (
+          <div className="flex flex-col gap-[16px]">
+            <span className="type-heading">Stack</span>
+            <Stack items={metadata.stack} />
+          </div>
+        )}
+        {footnotes && footnotes.length > 0 && (
+          <Footnotes>
+            {footnotes.map((footnote) => (
+              <Footnote key={footnote.n} n={footnote.n} text={footnote.text} />
+            ))}
+          </Footnotes>
+        )}
       </div>
     </main>
   );

@@ -3,7 +3,21 @@ export const metadata = {
   description: "Optimized feedback capture and relay for medical residents",
   title: "Optimizing feedback relay for medical residents",
   link: "fieldquotes.lovable.app",
+  stack: [
+    { icon: "/icons/stack/claude.webp", name: "Claude", usage: "Orchestration" },
+    { icon: "/icons/stack/lovable.svg", name: "Lovable", usage: "Vibecoding, Hosting" },
+    { icon: "/icons/stack/react.webp", name: "React", usage: "Frontend" },
+    { icon: "/icons/stack/supabase.svg", name: "Supabase", usage: "Database" },
+    { icon: "/icons/stack/notion.webp", name: "Notion", usage: "Context engineering" },
+    { icon: "/icons/stack/github.webp", name: "GitHub", usage: "Version control, Deployment" },
+    { icon: "/icons/stack/google-ai-studio.webp", name: "Google AI Studio", usage: "Audio processing, Content generation" },
+  ],
 };
+
+export const footnotes = [
+  { n: 1, text: "Style guidelines help here. The .md files that capture design preferences give agents a baseline. But guidelines describe principles; feedback addresses instances." },
+  { n: 2, text: "There are other tools pointing in this direction. What I wanted was something focused purely on feedback." },
+];
 
 For AGIV's Hackers & Healers Hackathon, my team built FieldQuote, a dictation tool for family medicine preceptors. My part was the piece that turns a spoken debrief into feedback and learning materials (Flashcads, quizzes, and more) the resident can actually use.
 
@@ -30,8 +44,3 @@ FieldQuote doesn't add a step. The preceptor picks the resident, speaks the debr
 Most of the 44 teams at the hackathon built another inbox to triage, another portal to log into, another subscription and the learning curve for the tool add ons stacked on top of an already overloaded clinic.
 
 FieldQuote doesn't compete on doing more, it fits inside a step that already exists, so nothing new has to be adopted<FootnoteRef n={1} />.
-
-<Footnotes>
-  <Footnote n={1} text="Style guidelines help here. The .md files that capture design preferences give agents a baseline. But guidelines describe principles; feedback addresses instances." />
-  <Footnote n={2} text="There are other tools pointing in this direction. What I wanted was something focused purely on feedback." />
-</Footnotes>
