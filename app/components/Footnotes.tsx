@@ -14,15 +14,22 @@ export function Footnote({ n, text }: { n: number; text: string }) {
       className="type-caption leading-[1.618] pl-[14px]"
       style={{ textIndent: "-14px" }}
     >
-      <sup>{n}</sup> {text}
+      <a href={`#footnote-ref-${n}`} className="hover-transition hover:text-black">
+        <sup>{String(n).padStart(2, "0")}</sup>
+      </a>{" "}
+      {text}
     </li>
   );
 }
 
 export function FootnoteRef({ n }: { n: number }) {
   return (
-    <a href={`#footnote-${n}`} className="type-caption hover-transition hover:text-black">
-      <sup>{n}</sup>
+    <a
+      id={`footnote-ref-${n}`}
+      href={`#footnote-${n}`}
+      className="type-caption hover-transition hover:text-black"
+    >
+      <sup>{String(n).padStart(2, "0")}</sup>
     </a>
   );
 }
