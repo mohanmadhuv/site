@@ -19,6 +19,7 @@ export default function TableOfContents({
     const container = document.getElementById(containerId);
     if (!container) return;
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- reads DOM produced by MDX children, no derivable prop/state alternative
     setHeadings(
       Array.from(container.querySelectorAll("h2")).map((el) => ({
         id: el.id,
