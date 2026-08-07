@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
 
 export type StackItem = {
-  icon: string;
-  name: string;
-  usage: string;
+  icon: string | string[];
+  name: string | string[];
+  usage: string | string[];
 };
 
 export type FootnoteItem = {

@@ -12,8 +12,8 @@ const projects = [
     description: "Making clinical supervision easy for preceptors",
   },
   {
-    slug: "gc-contract-intelligence",
-    name: "GC Contract Intelligence",
+    slug: "sightline",
+    name: "Sightline",
     description: "Canadian Government's expense growth analysis and insights",
   },
 ];

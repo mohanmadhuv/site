@@ -4,7 +4,7 @@ import DetailPageLayout from "@/app/components/DetailPageLayout";
 const slugs = [
   "fieldquote",
   "pop",
-  "gc-contract-intelligence",
+  "sightline",
 ];
 
 export function generateStaticParams() {
